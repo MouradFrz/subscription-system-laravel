@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('styles')
+@vite(['resources/js/react-app/main.jsx'])
+@endsection
 @section('content')
     <div class="container">
         @if (Session::has('message'))
@@ -19,13 +22,13 @@
                             @endif
                         @endif
                     @endforeach
-                @elseif (Auth::user()->hasExpiredTrial('default'))
-                    Your trial has expired
                 @else
                     You are not subscribed and your account is limited
                 @endif
             </p>
-            <p>{{ Auth::user()->subscription()===null ? "null" : "not nul" }}</p>
         @endauth
+        <div class="d-flex justify-center align-center" id="root">
+
+        </div>
     </div>
 @endsection
